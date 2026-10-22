@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Camera, Image as ImageIcon } from "lucide-react";
+import { Camera } from "lucide-react";
 
+import hotelExteriorIllustration from "@/assets/hotel-exterior-illustration.png";
 import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { HOTEL_NAME } from "@/lib/hotel";
@@ -12,14 +13,13 @@ export const Route = createFileRoute("/gallery")({
       { title: "Gallery — Hotel Green Snapper By Du Room, Malka Ganj Delhi" },
       {
         name: "description",
-        content:
-          "Photographs of Hotel Green Snapper By Du Room will be added here, supplied directly by the hotel owner. Meanwhile, enquire about rooms and availability in Malka Ganj, Delhi.",
+        content: `View an illustration of ${HOTEL_NAME}'s exterior. Photographs of rooms and common areas will be added when supplied.`,
       },
       { property: "og:title", content: "Gallery — Hotel Green Snapper By Du Room" },
       {
         property: "og:description",
         content:
-          "Real hotel photographs, supplied by the owner, coming soon. Enquire about rooms at Hotel Green Snapper By Du Room.",
+          "An illustration of the hotel exterior, with room and common-area photographs to come.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/gallery" },
@@ -33,37 +33,47 @@ function GalleryPage() {
     <>
       <PageHero
         eyebrow="Gallery"
-        title="Hotel photographs will be added here"
-        description={`This gallery will feature real photographs of ${HOTEL_NAME}, supplied directly by the hotel owner. No stock or placeholder photography is used on this website.`}
+        title="A look at the hotel exterior"
+        description={`See an illustration of ${HOTEL_NAME}. Photographs of the rooms and common areas will be added when available.`}
       />
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <div className="rounded-2xl border border-dashed border-border bg-card p-10 text-center shadow-sm sm:p-16">
-          <span className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-secondary text-secondary-foreground">
-            <ImageIcon className="size-8" aria-hidden="true" />
-          </span>
-          <h2 className="mt-6 font-display text-2xl font-semibold text-foreground">
-            Hotel photographs will be added here.
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Once the owner supplies photos of the rooms, exterior and common areas, they will
-            appear in this gallery with descriptive captions.
-          </p>
-        </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="aspect-square bg-muted">
+              <img
+                src={hotelExteriorIllustration}
+                alt="Illustration of Hotel Green Snapper's multi-storey exterior with its sign and street frontage."
+                className="h-full w-full object-contain"
+                width={324}
+                height={312}
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="p-4">
+              <h2 className="font-display text-lg font-semibold text-foreground">
+                Hotel exterior illustration
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                An illustration of the hotel exterior, not a photograph.
+              </p>
+            </figcaption>
+          </figure>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-3" aria-hidden="true">
-          {["Room photo coming soon", "Exterior photo coming soon", "Common area photo coming soon"].map(
-            (label) => (
-              <div
-                key={label}
-                className="hero-pattern flex h-40 items-center justify-center rounded-xl text-primary-foreground/70"
-              >
-                <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest">
-                  <Camera className="size-4" aria-hidden="true" /> {label}
-                </span>
-              </div>
-            ),
-          )}
+          {["Room photographs coming soon", "Common-area photographs coming soon"].map((label) => (
+            <div
+              key={label}
+              className="flex min-h-[280px] flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card p-8 text-center"
+            >
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-secondary text-secondary-foreground">
+                <Camera className="size-7" aria-hidden="true" />
+              </span>
+              <h2 className="mt-5 font-display text-lg font-semibold text-foreground">{label}</h2>
+              <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                Photographs will be added when they are supplied for the website.
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="mt-10 text-center">

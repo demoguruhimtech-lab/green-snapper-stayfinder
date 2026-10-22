@@ -1,13 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  BedDouble,
-  CalendarCheck,
-  MapPin,
-  MessageCircle,
-  Phone,
-  Star,
-} from "lucide-react";
+import { CalendarCheck, MapPin, MessageCircle, Phone, Star } from "lucide-react";
 
+import hotelExteriorIllustration from "@/assets/hotel-exterior-illustration.png";
 import { BookingForm } from "@/components/BookingForm";
 import { AmenityCard } from "@/components/AmenityCard";
 import { RoomCard } from "@/components/RoomCard";
@@ -118,26 +112,19 @@ function HeroSection() {
           </p>
         </div>
 
-        <div className="relative mx-auto hidden w-full max-w-sm lg:block" aria-hidden="true">
-          <div className="absolute inset-x-8 bottom-0 top-8 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/5" />
-          <div className="relative rounded-2xl border border-primary-foreground/25 bg-primary-foreground/10 p-8">
-            <span className="flex size-12 items-center justify-center rounded-xl bg-primary-foreground/15">
-              <BedDouble className="size-6 text-gold" />
-            </span>
-            <p className="mt-5 font-display text-2xl font-semibold">Hotel Green Snapper</p>
-            <p className="mt-1 text-sm text-primary-foreground/70">By Du Room</p>
-            <div className="mt-6 flex flex-wrap gap-2 text-xs">
-              {ROOM_TYPES.map((room) => (
-                <span
-                  key={room.id}
-                  className="rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3 py-1 text-primary-foreground/85"
-                >
-                  {room.name}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-2xl border border-primary-foreground/25 bg-background/10 shadow-xl">
+          <img
+            src={hotelExteriorIllustration}
+            alt="Illustration of Hotel Green Snapper's multi-storey exterior and street frontage."
+            className="block h-auto w-full"
+            width={324}
+            height={312}
+            fetchPriority="high"
+          />
+          <figcaption className="px-4 py-3 text-center text-xs text-primary-foreground/80">
+            Illustration of the hotel exterior
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
