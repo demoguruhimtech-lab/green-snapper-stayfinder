@@ -204,7 +204,7 @@ export function BookingForm({ defaultRoom, className }: BookingFormProps) {
             render={({ field }) => (
               <Select value={field.value} onValueChange={field.onChange}>
                 <SelectTrigger id="booking-children">
-                  <SelectValue placeholder="Select" />
+                  <SelectValue>{field.value}</SelectValue>
                 </SelectTrigger>
                 <SelectContent>
                   {[0, 1, 2, 3, 4, 5, 6].map((n) => (
