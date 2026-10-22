@@ -82,7 +82,7 @@ function FieldError({ message }: { message?: string }) {
 }
 
 interface BookingFormProps {
-  defaultRoom?: string;
+  defaultRoom?: string | undefined;
   className?: string;
 }
 
