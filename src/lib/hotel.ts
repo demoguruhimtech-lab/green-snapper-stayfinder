@@ -68,14 +68,14 @@ export function roomNameById(id: string | undefined): string | undefined {
 }
 
 export interface BookingEnquiry {
-  name?: string;
-  checkIn?: string;
-  checkOut?: string;
-  adults?: number;
-  children?: number;
-  rooms?: number;
-  roomType?: string;
-  message?: string;
+  name?: string | undefined;
+  checkIn?: string | undefined;
+  checkOut?: string | undefined;
+  adults?: number | undefined;
+  children?: number | undefined;
+  rooms?: number | undefined;
+  roomType?: string | undefined;
+  message?: string | undefined;
 }
 
 export function createWhatsAppLink(booking: BookingEnquiry = {}): string {
