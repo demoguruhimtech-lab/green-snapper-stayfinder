@@ -14,12 +14,12 @@ import {
 } from "@/lib/hotel";
 
 interface BookingSearch {
-  room?: string;
+  room?: string | undefined;
 }
 
 export const Route = createFileRoute("/booking")({
   validateSearch: (search: Record<string, unknown>): BookingSearch => {
-    const room = typeof search.room === "string" ? search.room : undefined;
+    const room = typeof search["room"] === "string" ? search["room"] : undefined;
     return { room: room && ROOM_TYPES.some((r) => r.id === room) ? room : undefined };
   },
   component: BookingPage,
