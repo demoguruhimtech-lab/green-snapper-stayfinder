@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MessageCircle, Phone } from "lucide-react";
 
+import hotelRoomInterior from "@/assets/hotel-room-interior.png";
 import { PageHero } from "@/components/PageHero";
 import { RoomCard } from "@/components/RoomCard";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,32 @@ function RoomsPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+        <figure className="mb-8 grid overflow-hidden rounded-2xl border border-border bg-card shadow-sm lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="aspect-[4/3] bg-muted lg:aspect-auto lg:min-h-[360px]">
+            <img
+              src={hotelRoomInterior}
+              alt="Hotel room with a double bed, blue upholstered headboard and bedding, and light walls."
+              className="h-full w-full object-cover"
+              width={1360}
+              height={1020}
+              fetchPriority="high"
+            />
+          </div>
+          <figcaption className="flex flex-col justify-center p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Room interior
+            </p>
+            <h2 className="mt-2 font-display text-2xl font-semibold text-foreground">
+              A look inside the hotel
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              This supplied room photo gives a glimpse of the interior. Room category, furnishings,
+              configuration and facilities may vary; please confirm details with the hotel before
+              booking.
+            </p>
+          </figcaption>
+        </figure>
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {ROOM_TYPES.map((room) => (
             <RoomCard key={room.id} room={room} detailed />
