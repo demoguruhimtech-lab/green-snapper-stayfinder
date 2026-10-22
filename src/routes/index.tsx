@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CalendarCheck, MapPin, MessageCircle, Phone, Star } from "lucide-react";
+import { BedDouble, CalendarCheck, MapPin, MessageCircle, Phone, Star } from "lucide-react";
 
 import hotelExteriorIllustration from "@/assets/hotel-exterior-illustration.png";
 import { BookingForm } from "@/components/BookingForm";
